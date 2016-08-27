@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Weather APP</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class='text-center'>Dope Wars Remake</h1>
+      <button class='start btn btn-lg btn-success center-block'>Start Game</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class='row'>
+      <div class='col-xs-4'>
+        <div id='player' class='text-center'></div>
+      </div>
+      <div class='col-xs-4'>
+        <div id='money' class="text-center">$0</div>
+      </div>
+      <div class='col-xs-4'>
+        <div id='daysLeft'></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-1">
+          <table class="table table-hover">
+            <tr>
+              <td>Acid: <span id="acid"></span>
+                <span id='acidAdd' class='glyphicon glyphicon-plus'></span><span id="cocaineQty">0</span><span id='acidSub' class='glyphicon glyphicon-minus'></span><button id='sellAcid' class='btn pull-right'>Sell</button><button id='buyAcid' class='btn pull-right'>Buy</button></td>
+            </tr>
+            <tr>
+              <td>Cocaine: <span id="cocaine"></span>
+              <span id='cocaineAdd'>+</span><span id="cocaineQty">0</span><span id='cocaineSub'>-</span><button id='sellCocaine' class='btn pull-right'>Sell</button><button id='buyCocaine' class='btn pull-right'>Buy</button></td>
+            </tr>
+            <tr>
+              <td>Ecstasy: <span id='ecstasy'></span>
+              <span id="ecstasyAdd">+</span><span id="ecstasyQty">0</span><span id="ecstasySub">-</span><button id='sellEcstasy' class='btn pull-right'>Sell</button><button id='buyEcstasy' class='btn pull-right'>Buy</button></td>
+            </tr>
+            <tr>
+              <td>Lean: <span id="lean"></span>
+              <span id="leanAdd">+</span><span id="leanpQty">0</span><span id="leanSub">-</span><button id='sellLean' class='btn pull-right'>Sell</button><button id='buyLean' class='btn pull-right'>Buy</button></td>
+            </tr>
+            <tr>
+              <td>Heroin: <span id="heroin"></span>
+              <span id="heroinAdd">+</span><span id="heroinQty">0</span><span id="heroinSub">-</span><button id='sellHeroin' class='btn pull-right'>Sell</button><button id='buyHeroin' class='btn pull-right'>Buy</button></td>
+            </tr>
+            <tr>
+              <td>Weed: <span id="weed"></span>
+              <span id="weedAdd">+</span><span id="weedQty">0</span><span id="weedSub">-</span><button id='sellWeed' class='btn pull-right'>Sell</button><button id='buyWeed' class='btn pull-right'>Buy</button></td>
+            </tr>
+            <tr>
+              <td>Speed: <span id="speed"></span>
+              <span id="speedAdd">+</span><span id="speedQty">0</span><span id="speedSub">-</span><button id='sellSpeed' class='btn pull-right'>Sell</button><button id='buySpeed' class='btn pull-right'>Buy</button></td>
+            </tr>
+            <tr>
+              <td>Shrooms: <span id="shrooms"></span>
+              <span id="shroomsAdd">+</span><span id="shroomsQty">0</span><span id="shroomsSub">-</span><button id='sellShrooms' class='btn pull-right'>Sell</button><button id='buyShrooms' class='btn pull-right'>Buy</button></td>
+            </tr>
+          </table>
+      </div>
+      <div class="col-md-3 col-md-offset-3">
+        <div class='cityTitle'>Choose the city you want to travel to!!</div>
+        <button class='btn btn-info city losAngeles'>Los Angeles</button>
+        <hr />
+        <button class='btn btn-info city harlem'>Harlem</button>
+        <hr />
+        <button class='btn  btn-info city bronx'>Bronx</button>
+        <hr />
+        <button class='btn btn-info city chicago'>Chicago</button>
+        <hr />
+        <button class='btn  btn-info city brooklyn'>Brooklyn</button>
+        <hr />
+        <button class='btn btn-info city sanAntonio'>San Antonio</button>
+        <hr />
+        <button class='btn btn-info city miami'>Miami</button>
+    </div>
+    </div>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src='js/main.js'></script>
+</body>
+</html>
+
