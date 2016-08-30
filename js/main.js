@@ -15,48 +15,56 @@ jQuery(function($){
       this.acid = document.getElementById('acid');
       this.acidQty = document.getElementById('acidQty');
       this.acidAdd = document.getElementById('acidAdd');
+      this.acidSubtract = document.getElementById('acidSubtract');
       this.acidBuy = document.getElementById('buyAcid');
       this.acidSell = document.getElementById('sellAcid');
       this.acidStock = 0;
       this.cocaine = document.getElementById('cocaine');
       this.cocaineQty = document.getElementById('cocaineQty');
       this.cocaineAdd = document.getElementById('cocaineAdd');
+      this.cocaineSubtract = document.getElementById('cocaineSubtract');
       this.cocaineBuy = document.getElementById('buyCocaine');
       this.cocaineSell = document.getElementById('sellCocaine');
       this.cocaineStock = 0;
       this.ecstasy = document.getElementById('ecstasy');
       this.ecstasyQty = document.getElementById('ecstasyQty');
       this.ecstasyAdd = document.getElementById('ecstasyAdd');
+      this.ecstasySubtract = document.getElementById('ecstasySubtract');
       this.ecstasyBuy = document.getElementById('buyEcstasy');
       this.ecstasySell = document.getElementById('sellEcstasy');
       this.ecstasyStock = 0;
       this.lean = document.getElementById('lean');
       this.leanQty = document.getElementById('leanQty');
       this.leanAdd = document.getElementById('leanAdd');
+      this.leanSubtract = document.getElementById('leanSubtract');
       this.leanBuy = document.getElementById('buyLean');
       this.leanSell = document.getElementById('sellLean');
       this.ecstasyStock = 0;
       this.heroin = document.getElementById('heroin');
       this.heroinQty = document.getElementById('heroinQty');
       this.heroinAdd = document.getElementById('heroinAdd');
+      this.heroinSubtract = document.getElementById('heroinSubtract');
       this.heroinBuy = document.getElementById('buyHeroin');
       this.heroinSell = document.getElementById('sellHeroin');
       this.heroinStock = 0;
       this.weed = document.getElementById('weed');
       this.weedQty = document.getElementById('weedQty');
       this.weedAdd = document.getElementById('weedAdd');
+      this.weedSubtract = document.getElementById('weedSubtract');
       this.weedBuy = document.getElementById('buyWeed');
       this.weedSell = document.getElementById('sellWeed');
       this.weedStock = 0;
       this.shrooms = document.getElementById('shrooms');
       this.shroomsQty = document.getElementById('shroomsQty');
       this.shroomsAdd = document.getElementById('shroomsAdd');
+      this.shroomsSubtract = document.getElementById('shroomsSubtract');
       this.shroomsBuy = document.getElementById('buyShrooms');
       this.shroomsSell = document.getElementById('sellShrooms');
       this.shroomStock = 0;
       this.speed = document.getElementById('speed');
       this.speedQty = document.getElementById('speedQty');
       this.speedAdd = document.getElementById('speedAdd');
+      this.speedSubtract = document.getElementById('speedSubtract');
       this.speedBuy = document.getElementById('buySpeed');
       this.speedSell = document.getElementById('sellSpeed');
       this.speedStock = 0;
@@ -94,27 +102,35 @@ jQuery(function($){
     },
     bindEvents: function(){
       this.acidAdd.addEventListener('click', this.addAcid.bind(this), false);
+      this.acidSubtract.addEventListener('click', this.subtractAcid.bind(this), false);
       this.acidBuy.addEventListener('click', this.buyAcid.bind(this), false);
       this.acidSell.addEventListener('click', this.sellAcid.bind(this), false);
       this.cocaineAdd.addEventListener('click', this.addCocaine.bind(this), false);
+      this.cocaineSubtract.addEventListener('click', this.subtractCocaine.bind(this), false);
       this.cocaineBuy.addEventListener('click', this.buyCocaine.bind(this), false);
       this.cocaineSell.addEventListener('click', this.sellCocaine.bind(this), false);
       this.ecstasyAdd.addEventListener('click', this.addEcstasy.bind(this), false);
+      this.ecstasySubtract.addEventListener('click', this.subtractEcstasy.bind(this), false);
       this.ecstasyBuy.addEventListener('click', this.buyEcstasy.bind(this), false);
       this.ecstasySell.addEventListener('click', this.sellEcstasy.bind(this), false);
       this.leanAdd.addEventListener('click', this.addLean.bind(this), false);
+      this.leanSubtract.addEventListener('click', this.subtractLean.bind(this), false);
       this.leanBuy.addEventListener('click', this.buyLean.bind(this), false);
       this.leanSell.addEventListener('click', this.sellLean.bind(this), false);
       this.heroinAdd.addEventListener('click', this.addHeroin.bind(this), false);
+      this.heroinSubtract.addEventListener('click', this.subtractHeroin.bind(this), false);
       this.heroinBuy.addEventListener('click', this.buyHeroin.bind(this), false);
       this.heroinSell.addEventListener('click', this.sellHeroin.bind(this), false);
       this.weedAdd.addEventListener('click', this.addWeed.bind(this), false);
+      this.weedSubtract.addEventListener('click', this.subtractWeed.bind(this), false);
       this.weedBuy.addEventListener('click', this.buyWeed.bind(this), false);
       this.weedSell.addEventListener('click', this.sellWeed.bind(this), false);
       this.speedAdd.addEventListener('click', this.addSpeed.bind(this), false);
+      this.speedSubtract.addEventListener('click', this.subtractSpeed.bind(this), false);
       this.speedBuy.addEventListener('click', this.buySpeed.bind(this), false);
       this.speedSell.addEventListener('click', this.sellSpeed.bind(this), false);
       this.shroomsAdd.addEventListener('click', this.addShrooms.bind(this), false);
+      this.shroomsSubtract.addEventListener('click', this.subtractShrooms.bind(this), false);
       this.shroomsBuy.addEventListener('click', this.buyShrooms.bind(this), false);
       this.shroomsSell.addEventListener('click', this.sellShrooms.bind(this), false);
     },
@@ -380,6 +396,62 @@ jQuery(function($){
       this.getQty();
       this.shroomsQuantity ++;
       this.updateQuantity();
+    },
+    subtractAcid: function(){
+      if(this.acidQuantity > 0){
+        this.getQty();
+        this.acidQuantity --;
+        this.updateQuantity();
+      };
+    },
+    subtractCocaine: function(){
+      if(this.cocaineQuantity > 0){
+        this.getQty();
+        this.cocaineQuantity --;
+        this.updateQuantity();
+      };
+    },
+    subtractEcstasy: function(){
+      if(this.ecstasyQuantity > 0){
+        this.getQty();
+        this.ecstasyQuantity --;
+        this.updateQuantity();
+      };
+    },
+    subtractLean: function(){
+      if(this.leanQuantity > 0){
+        this.getQty();
+        this.leanQuantity --;
+        this.updateQuantity();
+      };
+    },
+    subtractHeroin: function(){
+      if(this.heroinQuantity > 0){
+        this.getQty();
+        this.heroinQuantity --;
+        this.updateQuantity();
+      };
+    },
+    subtractWeed: function(){
+      if(this.weedQuantity > 0){
+        this.getQty();
+        this.weedQuantity --;
+        this.updateQuantity();
+      };
+    },
+    subtractSpeed: function(){
+      if(this.speedQuantity > 0){
+        this.getQty();
+        this.speedQuantity --;
+        this.updateQuantity();
+      };
+    },
+    subtractShrooms: function(){
+      if(this.shroomsQuantity > 0){
+        this.getQty();
+        this.shroomsQuantity --;
+        this.updateQuantity();
+      };
     },
     getDrugPrices: function(){
       //Change back to 100, 449
