@@ -11,97 +11,89 @@
       <h1 class='text-center'>Dope Wars Remake</h1>
       <button class='start btn btn-lg btn-success center-block'>Start Game</button>
     </div>
-  </div>
-  <div class='container'>
-    <div class='row'>
-      <div class='col-xs-4'>
-        <div id='player' class='text-center'></div>
-      </div>
-      <div class='col-xs-4'>
-        <div id='money' class='text-center'>$0</div>
-      </div>
-      <div class='col-xs-4'>
-        <div id='daysLeft'></div>
-      </div>
+    <div class="player-details">
+      Name: <span id='player'></span>
+      Money: <span id='money'>$0</span>
+      Days Left: <span id='daysLeft'></span>
     </div>
     <div class='row'>
       <div class='col-md-4 col-md-offset-1'>
-          <table class='table table-hover'>
-            <tr>
-              <td>Acid:</td>
-              <td><span id='acid'></span></td>
-              <td><span id='acidAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='acidQty'>0</span></td>
-              <td><span id='acidSubtract' class='glyphicon glyphicon-minus'></span></td>
-              <td><button id='sellAcid' class='btn pull-right'>Sell</button></td>
-              <td><button id='buyAcid' class='btn pull-right'>Buy</button></td>
-            </tr>
-            <tr>
-              <td>Cocaine:</td>
-              <td><span id='cocaine'></span></td>
-              <td><span id='cocaineAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='cocaineQty'>0</span></td>
-              <td><span id='cocaineSubtract' class='glyphicon glyphicon-minus'></span></td>
-              <td><button id='sellCocaine' class='btn pull-right'>Sell</button></td>
-              <td><button id='buyCocaine' class='btn pull-right'>Buy</button></td>
-            </tr>
-            <tr>
-              <td>Ecstasy:</td>
-              <td><span id='ecstasy'></span></td>
-              <td><span id='ecstasyAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='ecstasyQty'>0</span></td>
-              <td><span id='ecstasySubtract' class='glyphicon glyphicon-minus'></span></td>
-              <td><button id='sellEcstasy' class='btn pull-right'>Sell</button></td>
-              <td><button id='buyEcstasy' class='btn pull-right'>Buy</button></td>
-            </tr>
-            <tr>
-              <td>Lean:</td>
-              <td><span id='lean'></span></td>
-              <td><span id='leanAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='leanQty'>0</span></td>
-              <td><span id='leanSubtract' class='glyphicon glyphicon-minus'></span></td>
-              <td><button id='sellLean' class='btn pull-right'>Sell</button></td>
-              <td><button id='buyLean' class='btn pull-right'>Buy</button></td>
-            </tr>
-            <tr>
-              <td>Heroin:</td>
-              <td><span id='heroin'></span></td>
-              <td><span id='heroinAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='heroinQty'>0</span></td>
-              <td><span id='heroinSubtract' class='glyphicon glyphicon-minus'></span></td>
-              <td><button id='sellHeroin' class='btn pull-right'>Sell</button></td>
-              <td><button id='buyHeroin' class='btn pull-right'>Buy</button></td>
-            </tr>
-            <tr>
-              <td>Weed:</td>
-              <td><span id='weed'></span></td>
-              <td><span id='weedAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='weedQty'>0</span></td>
-              <td><span id='weedSubtract' class='glyphicon glyphicon-minus'></span></td>
-              <td><button id='sellWeed' class='btn pull-right'>Sell</button></td>
-              <td><button id='buyWeed' class='btn pull-right'>Buy</button></td>
-            </tr>
-            <tr>
-              <td>Speed:</td>
-              <td><span id='speed'></span></td>
-              <td><span id='speedAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='speedQty'>0</span></td>
-              <td><span id='speedSubtract' class='glyphicon glyphicon-minus'></span></td>
-              <td><button id='sellSpeed' class='btn pull-right'>Sell</button></td>
-              <td><button id='buySpeed' class='btn pull-right'>Buy</button></td>
-            </tr>
-            <tr>
-              <td>Shrooms:</td>
-              <td><span id='shrooms'></span></td>
-              <td><span id='shroomsAdd' class='glyphicon glyphicon-plus'></span></td>
-              <td><span id='shroomsQty'>0</span></td>
-              <td><span id='shroomsSubtract' class='glyphicon glyphicon-minus'></td>
-              <td></span><button id='sellShrooms' class='btn pull-right'>Sell</button></td>
-              <td><button id='buyShrooms' class='btn pull-right'>Buy</button></td>
-            </tr>
-          </table>
+        <table class='table table-hover'>
+          <tr>
+            <td>Acid:</td>
+            <td><span id='acid'></span></td>
+            <td><span id='acidAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='acidQty'>0</span></td>
+            <td><span id='acidSubtract' class='glyphicon glyphicon-minus'></span></td>
+            <td><button id='sellAcid' class='btn pull-right'>Sell</button></td>
+            <td><button id='buyAcid' class='btn pull-right'>Buy</button></td>
+          </tr>
+          <tr>
+            <td>Cocaine:</td>
+            <td><span id='cocaine'></span></td>
+            <td><span id='cocaineAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='cocaineQty'>0</span></td>
+            <td><span id='cocaineSubtract' class='glyphicon glyphicon-minus'></span></td>
+            <td><button id='sellCocaine' class='btn pull-right'>Sell</button></td>
+            <td><button id='buyCocaine' class='btn pull-right'>Buy</button></td>
+          </tr>
+          <tr>
+            <td>Ecstasy:</td>
+            <td><span id='ecstasy'></span></td>
+            <td><span id='ecstasyAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='ecstasyQty'>0</span></td>
+            <td><span id='ecstasySubtract' class='glyphicon glyphicon-minus'></span></td>
+            <td><button id='sellEcstasy' class='btn pull-right'>Sell</button></td>
+            <td><button id='buyEcstasy' class='btn pull-right'>Buy</button></td>
+          </tr>
+          <tr>
+          <td>Lean:</td>
+            <td><span id='lean'></span></td>
+            <td><span id='leanAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='leanQty'>0</span></td>
+            <td><span id='leanSubtract' class='glyphicon glyphicon-minus'></span></td>
+            <td><button id='sellLean' class='btn pull-right'>Sell</button></td>
+            <td><button id='buyLean' class='btn pull-right'>Buy</button></td>
+          </tr>
+          <tr>
+            <td>Heroin:</td>
+            <td><span id='heroin'></span></td>
+            <td><span id='heroinAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='heroinQty'>0</span></td>
+            <td><span id='heroinSubtract' class='glyphicon glyphicon-minus'></span></td>
+            <td><button id='sellHeroin' class='btn pull-right'>Sell</button></td>
+            <td><button id='buyHeroin' class='btn pull-right'>Buy</button></td>
+          </tr>
+          <tr>
+            <td>Weed:</td>
+            <td><span id='weed'></span></td>
+            <td><span id='weedAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='weedQty'>0</span></td>
+            <td><span id='weedSubtract' class='glyphicon glyphicon-minus'></span></td>
+            <td><button id='sellWeed' class='btn pull-right'>Sell</button></td>
+            <td><button id='buyWeed' class='btn pull-right'>Buy</button></td>
+          </tr>
+          <tr>
+            <td>Speed:</td>
+            <td><span id='speed'></span></td>
+            <td><span id='speedAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='speedQty'>0</span></td>
+            <td><span id='speedSubtract' class='glyphicon glyphicon-minus'></span></td>
+            <td><button id='sellSpeed' class='btn pull-right'>Sell</button></td>
+            <td><button id='buySpeed' class='btn pull-right'>Buy</button></td>
+          </tr>
+          <tr>
+            <td>Shrooms:</td>
+            <td><span id='shrooms'></span></td>
+            <td><span id='shroomsAdd' class='glyphicon glyphicon-plus'></span></td>
+            <td><span id='shroomsQty'>0</span></td>
+            <td><span id='shroomsSubtract' class='glyphicon glyphicon-minus'></td>
+            <td></span><button id='sellShrooms' class='btn pull-right'>Sell</button></td>
+            <td><button id='buyShrooms' class='btn pull-right'>Buy</button></td>
+          </tr>
+        </table>
       </div>
-      <div class='col-md-3 col-md-offset-4'>
+      <div class='col-md-3 col-md-offset-3'>
         <div class='cityTitle'>Choose the city you want to travel to!!</div>
         <button class='btn btn-info city losAngeles'>Los Angeles</button>
         <hr />

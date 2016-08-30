@@ -84,16 +84,12 @@ table button {
   margin: 1px;
 }
 
-span {
-  margin-left: 25px;
-}
 
 .money {
   margin-bottom: 50px;
 }
 
 .cityTitle {
-  margin-top: -20px;
   margin-bottom: 20px;
   margin-right: 110px;
   font-weight: bold;
@@ -108,5 +104,18 @@ span {
   margin: 5px;
 }
 
-
-
+.player-details{
+  display: block;
+  margin: 2% 5% 4%;
+  font-weight: bold;
+  text-align: center;
+}
+#player{
+  padding-right: 10%;
+}
+#money{
+  padding-right: 10%
+}
+#daysLeft{
+  padding-right: 10%
+}
