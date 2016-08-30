@@ -15,28 +15,51 @@ jQuery(function($){
       this.acid = document.getElementById('acid');
       this.acidQty = document.getElementById('acidQty');
       this.acidAdd = document.getElementById('acidAdd');
+      this.acidBuy = document.getElementById('buyAcid');
+      this.acidSell = document.getElementById('sellAcid');
+      this.acidStock = 0;
       this.cocaine = document.getElementById('cocaine');
       this.cocaineQty = document.getElementById('cocaineQty');
       this.cocaineAdd = document.getElementById('cocaineAdd');
+      this.cocaineBuy = document.getElementById('buyCocaine');
+      this.cocaineSell = document.getElementById('sellCocaine');
+      this.cocaineStock = 0;
       this.ecstasy = document.getElementById('ecstasy');
       this.ecstasyQty = document.getElementById('ecstasyQty');
       this.ecstasyAdd = document.getElementById('ecstasyAdd');
+      this.ecstasyBuy = document.getElementById('buyEcstasy');
+      this.ecstasySell = document.getElementById('sellEcstasy');
+      this.ecstasyStock = 0;
       this.lean = document.getElementById('lean');
       this.leanQty = document.getElementById('leanQty');
       this.leanAdd = document.getElementById('leanAdd');
-      this.leanAdd = document.getElementById('leanAdd');
+      this.leanBuy = document.getElementById('buyLean');
+      this.leanSell = document.getElementById('sellLean');
+      this.ecstasyStock = 0;
       this.heroin = document.getElementById('heroin');
       this.heroinQty = document.getElementById('heroinQty');
       this.heroinAdd = document.getElementById('heroinAdd');
+      this.heroinBuy = document.getElementById('buyHeroin');
+      this.heroinSell = document.getElementById('sellHeroin');
+      this.heroinStock = 0;
       this.weed = document.getElementById('weed');
       this.weedQty = document.getElementById('weedQty');
       this.weedAdd = document.getElementById('weedAdd');
+      this.weedBuy = document.getElementById('buyWeed');
+      this.weedSell = document.getElementById('sellWeed');
+      this.weedStock = 0;
       this.shrooms = document.getElementById('shrooms');
       this.shroomsQty = document.getElementById('shroomsQty');
       this.shroomsAdd = document.getElementById('shroomsAdd');
+      this.shroomsBuy = document.getElementById('buyShrooms');
+      this.shroomsSell = document.getElementById('sellShrooms');
+      this.shroomStock = 0;
       this.speed = document.getElementById('speed');
       this.speedQty = document.getElementById('speedQty');
       this.speedAdd = document.getElementById('speedAdd');
+      this.speedBuy = document.getElementById('buySpeed');
+      this.speedSell = document.getElementById('sellSpeed');
+      this.speedStock = 0;
       this.player = document.getElementById('player');
       this.getPricesButton = document.getElementById('getPrices');
       this.daysLeft = document.getElementById('daysLeft');
@@ -45,40 +68,265 @@ jQuery(function($){
       this.daysRemaining = 30;
       this.days = 0;
       this.totalMoney = 100;
+      this.acidQuantity = 10;
       this.owedMoney,
       this.totalSpace,
       this.inventory,
       this.totalHealth,
       this.acidPrice,
+      this.acidStock = 0,
       this.cocainePrice,
+      this.cocaineStock = 0,
       this.ecstasyPrice,
+      this.ecstasyStock = 0,
       this.leanPrice,
+      this.leanStock = 0,
       this.heroinPrice,
+      this.heroinStock = 0,
       this.weedPrice,
+      this.weedStock = 0,
       this.speedPrice,
+      this.speedStock = 0,
       this.shroomsPrice,
+      this.shroomsStock = 0,
       this.playerName,
       this.render();
     },
     bindEvents: function(){
       this.acidAdd.addEventListener('click', this.addAcid.bind(this), false);
+      this.acidBuy.addEventListener('click', this.buyAcid.bind(this), false);
+      this.acidSell.addEventListener('click', this.sellAcid.bind(this), false);
       this.cocaineAdd.addEventListener('click', this.addCocaine.bind(this), false);
+      this.cocaineBuy.addEventListener('click', this.buyCocaine.bind(this), false);
+      this.cocaineSell.addEventListener('click', this.sellCocaine.bind(this), false);
       this.ecstasyAdd.addEventListener('click', this.addEcstasy.bind(this), false);
+      this.ecstasyBuy.addEventListener('click', this.buyEcstasy.bind(this), false);
+      this.ecstasySell.addEventListener('click', this.sellEcstasy.bind(this), false);
       this.leanAdd.addEventListener('click', this.addLean.bind(this), false);
+      this.leanBuy.addEventListener('click', this.buyLean.bind(this), false);
+      this.leanSell.addEventListener('click', this.sellLean.bind(this), false);
       this.heroinAdd.addEventListener('click', this.addHeroin.bind(this), false);
+      this.heroinBuy.addEventListener('click', this.buyHeroin.bind(this), false);
+      this.heroinSell.addEventListener('click', this.sellHeroin.bind(this), false);
       this.weedAdd.addEventListener('click', this.addWeed.bind(this), false);
+      this.weedBuy.addEventListener('click', this.buyWeed.bind(this), false);
+      this.weedSell.addEventListener('click', this.sellWeed.bind(this), false);
       this.speedAdd.addEventListener('click', this.addSpeed.bind(this), false);
+      this.speedBuy.addEventListener('click', this.buySpeed.bind(this), false);
+      this.speedSell.addEventListener('click', this.sellSpeed.bind(this), false);
       this.shroomsAdd.addEventListener('click', this.addShrooms.bind(this), false);
+      this.shroomsBuy.addEventListener('click', this.buyShrooms.bind(this), false);
+      this.shroomsSell.addEventListener('click', this.sellShrooms.bind(this), false);
+    },
+    buyAcid: function(){
+      if(this.totalMoney > this.acidPrice){
+        this.getQty();
+        var amt = this.acidQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.acidPrice);
+        if(amt <= maxQty){
+          var total = amt * this.acidPrice;
+          this.totalMoney = this.totalMoney - total;
+          this.acidStock =+ amt;
+          console.log(this.acidStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellAcid: function(){
+      if(this.acidStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
+    },
+    buyCocaine: function(){
+      if(this.totalMoney > this.cocainePrice){
+        this.getQty();
+        var amt = this.cocaineQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.cocainePrice);
+        if(amt <= maxQty){
+          var total = amt * this.cocainePrice;
+          this.totalMoney = this.totalMoney - total;
+          this.concaineStock =+ amt;
+          console.log(this.concaineStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellCocaine: function(){
+      if(this.cocaineStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
+    },
+    buyEcstasy: function(){
+      if(this.totalMoney > this.ecstasyPrice){
+        this.getQty();
+        var amt = this.ecstasyQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.ecstasyPrice);
+        if(amt <= maxQty){
+          var total = amt * this.ecstasyPrice;
+          this.totalMoney = this.totalMoney - total;
+          this.ecstasyStock =+ amt;
+          console.log(this.ecstasyStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellEcstasy: function(){
+      if(this.ecstasyStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
+    },
+    buyLean: function(){
+      if(this.totalMoney > this.leanPrice){
+        this.getQty();
+        var amt = this.leanQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.leanPrice);
+        if(amt <= maxQty){
+          var total = amt * this.leanPrice;
+          this.totalMoney = this.totalMoney - total;
+          this.leanStock =+ amt;
+          console.log(this.leanStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellLean: function(){
+      if(this.leanStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
+    },
+    buyHeroin: function(){
+      if(this.totalMoney > this.heroinPrice){
+        this.getQty();
+        var amt = this.heroinQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.heroinPrice);
+        if(amt <= maxQty){
+          var total = amt * this.heroinPrice;
+          this.totalMoney = this.totalMoney - total;
+          this.heroinStock =+ amt;
+          console.log(this.heroinStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellHeroin: function(){
+      if(this.heroinStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
+    },
+    buyWeed: function(){
+      if(this.totalMoney > this.weedPrice){
+        this.getQty();
+        var amt = this.weedQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.weedPrice);
+        if(amt <= maxQty){
+          var total = amt * this.weedPrice;
+          this.totalMoney = this.totalMoney - total;
+          this.weedStock =+ amt;
+          console.log(this.weedStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellWeed: function(){
+      if(this.weedStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
+    },
+    buySpeed: function(){
+      if(this.totalMoney > this.speedPrice){
+        this.getQty();
+        var amt = this.speedQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.speedPrice);
+        if(amt <= maxQty){
+          var total = amt * this.speedPrice;
+          this.totalMoney = this.totalMoney - total;
+          this.speedStock =+ amt;
+          console.log(this.speedStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellSpeed: function(){
+      if(this.speedStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
+    },
+    buyShrooms: function(){
+      if(this.totalMoney > this.shroomsPrice){
+        this.getQty();
+        var amt = this.shroomsQuantity;
+        var maxQty = Math.floor(this.totalMoney/this.shroomsPrice);
+        if(amt <= maxQty){
+          var total = amt * this.shroomsPrice;
+          this.totalMoney = this.totalMoney - total;
+          this.shroomsStock =+ amt;
+          console.log(this.shroomsStock);
+        } else {
+          alert("You don't have enough money for that many drugs.")
+        }
+      } else {
+        alert('Your broke ass can\'t afford this.');
+      }
+    },
+    sellShrooms: function(){
+      if(this.shroomsStock > 0){
+        alert('You have drugs to sell');
+      } else {
+        alert('Have you been using your own stuff??  You don\'t have any to sell');
+      }
     },
     getQty: function(){
-      this.acidQuantity = parseInt($('#acidQty').html());
-      this.cocaineQuantity = parseInt($('#cocaineQty').html());
-      this.ecstasyQuantity = parseInt($('#ecstasyQty').html());
-      this.leanQuantity = parseInt($('#leanQty').html());
-      this.heroinQuantity = parseInt($('#heroinQty').html());
-      this.weedQuantity = parseInt($('#weedQty').html());
-      this.speedQuantity = parseInt($('#speedQty').html());
-      this.shroomsQuantity = parseInt($('#shroomsQty').html());
+      this.acidQuantity = parseInt(this.acidQty.textContent);
+      // this.acidQuantity = parseInt($('#acidQty').html());
+      this.cocaineQuantity = parseInt(this.cocaineQty.textContent);
+      // this.cocaineQuantity = parseInt($('#cocaineQty').html());
+      this.ecstasyQuantity = parseInt(this.ecstasyQty.textContent);
+      // this.ecstasyQuantity = parseInt($('#ecstasyQty').html());
+      this.leanQuantity = parseInt(this.leanQty.textContent);
+      // this.leanQuantity = parseInt($('#leanQty').html());
+      this.heroinQuantity = parseInt(this.heroinQty.textContent);
+      // this.heroinQuantity = parseInt($('#heroinQty').html());
+      this.weedQuantity = parseInt(this.weedQty.textContent);
+      // this.weedQuantity = parseInt($('weedQty').html());
+      this.speedQuantity = parseInt(this.speedQty.textContent);
+      // this.speedQuantity = parseInt($('speedQty').html());
+      this.shroomsQuantity = parseInt(this.shroomsQty.textContent);
+      // this.shroomsQuantity = parseInt($('#shroomsQty').html());
     },
     updateQuantity: function(){
       this.acidQty.innerText = this.acidQuantity;
@@ -134,14 +382,21 @@ jQuery(function($){
       this.updateQuantity();
     },
     getDrugPrices: function(){
-      this.acidPrice = this.randomDrugPrice(100, 449);
-      this.cocainePrice = this.randomDrugPrice(150, 499);
+      //Change back to 100, 449
+      this.acidPrice = this.randomDrugPrice(10, 44);
+      //150, 499
+      this.cocainePrice = this.randomDrugPrice(15, 49);
       this.ecstasyPrice = this.randomDrugPrice(10, 59);
-      this.leanPrice = this.randomDrugPrice(100, 349);
-      this.heroinPrice = this.randomDrugPrice(500, 895);
-      this.weedPrice = this.randomDrugPrice(300, 899);
-      this.shroomsPrice = this.randomDrugPrice(60, 134);
-      this.speedPrice = this.randomDrugPrice(70, 249);
+      //100, 349
+      this.leanPrice = this.randomDrugPrice(10, 34);
+      //500, 895
+      this.heroinPrice = this.randomDrugPrice(50, 89);
+      //300, 899
+      this.weedPrice = this.randomDrugPrice(30, 89);
+      //60, 134
+      this.shroomsPrice = this.randomDrugPrice(6, 13);
+      //70, 249
+      this.speedPrice = this.randomDrugPrice(7, 24);
     },
     getPlayerInfo: function(){
       this.playerName = prompt('What is your street name??');
